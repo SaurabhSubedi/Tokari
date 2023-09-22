@@ -1,0 +1,111 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block css %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+      <style>
+    /* Custom styles for the page */
+    .jumbotron {
+      background-image: url('{% static 'images/grey.jpg' %}');
+      background-size: cover;
+      color: #fff;
+      padding: 200px;
+      margin-bottom: 0;
+    }
+
+    .jumbotron h1 {
+      font-size: 48px;
+        color: white;
+    }
+
+    .jumbotron p {
+      font-size: 24px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .feature-item i {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item h3 {
+      font-size: 24px;
+    }
+    .footer {
+  padding: 10px 0;
+}
+.footer a {
+  color: #70726F;
+  font-size: 30px;
+  padding: 10px;
+  border-right: 1px solid #70726F;
+  transition: all .5s ease;
+}
+.footer a:first-child {
+  border-left: 1px solid #70726F;
+}
+.footer a:hover {
+  color: green;
+}
+  </style>
+{% endblock css %}
+{% block content %}
+      <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Welcome to  टोकरी </h1>
+      <p class="lead">Discover the best selection of high-quality products online</p>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h2>About Us</h2>
+    <hr>
+    <p>Welcome to Tokari! We are an online ecommerce platform committed to providing you with the best shopping experience. With a wide range of products and exceptional customer service, we strive to make your online shopping journey convenient, enjoyable, and secure.</p>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="feature-item">
+          <i class="fa fa-users"></i>
+          <h3>Our Vision</h3>
+          <p>At Tokari, our vision is to become the go-to destination for all your online shopping needs. We aim to offer an extensive selection of high-quality products at competitive prices, while ensuring a seamless and user-friendly shopping experience.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="feature-item">
+          <i class="fa fa-shopping-cart"></i>
+          <h3>Our Products</h3>
+          <p>We carefully curate our product catalog to offer you a diverse range of items, including electronics, fashion, home decor, beauty products, and much more. Whether you're looking for the latest gadgets or trendy fashion accessories, we have something for everyone.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="feature-item">
+          <i class="fa fa-lock"></i>
+          <h3>Secure Shopping</h3>
+          <p>Your security is our top priority. We implement industry-standard security measures to protect your personal information and ensure safe transactions. Our payment gateway is encrypted, giving you peace of mind while making online payments.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Contact Us</h2>
+    <hr>
+    <p>If you have any questions, concerns, or feedback, we'd love to hear from you. Please feel free to reach out to our friendly customer support team via our <a href="{% url 'contact' %}">Contact</a> page.</p>
+     <p>You can also reach us through our social media below..</p>
+  </div>
+
+<footer class="footer">
+  <div class="container text-center">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-google-plus"></i></a>
+    <a href="#"><i class="fa fa-skype"></i></a>
+  </div>
+</footer>
+    <div class="footer-copyright text-center py-3">© 2023 Copyright:
+    <a href="/">www.Tokari.com</a>
+  </div>
+
+{% endblock content %}

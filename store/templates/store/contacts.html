@@ -1,0 +1,104 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block css %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <style>
+        .footer {
+            padding: 10px 0;
+        }
+
+        .footer a {
+            color: #70726F;
+            font-size: 30px;
+            padding: 10px;
+            border-right: 1px solid #70726F;
+            transition: all .5s ease;
+        }
+
+        .footer a:first-child {
+            border-left: 1px solid #70726F;
+        }
+
+        .footer a:hover {
+            color: green;
+        }
+    </style>
+{% endblock css %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Warning!</strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="d-flex">
+        <div class="my-5"><img src="{% static 'images/telephone.png' %}" alt="" height="500" width="500" class=""></div>
+        <div class="my-5 ml-5">
+            <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="Enter email" required name="email">
+                    <small id="emailHelp" class="form-text text-muted">Your email address will be kept private.</small>
+                </div>
+                <div class="form-group">
+                    <label for="name">Enter your full name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your full name" name="name" required>
+                </div>
+                <label for="radio">Are you a registered user?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="is_user" id="flexRadioDefault1" value="True">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="is_user" id="flexRadioDefault2" checked value="False">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        No
+                    </label>
+                </div>
+                <br>
+
+
+                <label for="dropdown">Select the type of information or issue.</label><br>
+                <select class="form-select" aria-label="Default select example" name="type">
+                    <option selected value="General inquiry">General inquiry</option>
+                    <option value="Login and Registration">Login and Registration</option>
+                    <option value="Bugs and glitches">Bugs and glitches</option>
+                    <option value="Payment issues">Payment issues</option>
+                    <option value="Other">Other</option>
+                </select>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Elaborate on your problem.</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="desc" required></textarea>
+                </div>
+
+
+                <button type="submit" class="btn btn-success rounded">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center mb-3">You can also contact us through our socials..</div>
+        <div class="container text-center">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+            <a href="#"><i class="fa fa-skype"></i></a>
+        </div>
+    </footer>
+    <div class="footer-copyright text-center py-3">© 2023 Copyright:
+        <a href="/">www.Tokari.com</a>
+    </div>
+
+{% endblock content %}

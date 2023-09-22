@@ -1,0 +1,27 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+			<img  src="{{object.imageURL}}">
+    </div>
+    <div class = "row">
+			<div class="box-element product">
+				<h6><strong>{{object.name}}</strong></h6>
+                <h6>{{ object.category }}</h6>
+                <hr>
+                {% if object.digital == True %}
+                    <h6>Is it digital?: Yes<h6>
+                    {% else %}
+                        <h6>Is it digital? : No</h6>
+                {% endif %}
+                <hr>
+                <p>{{ object.desc }}</p>
+				<hr>
+
+				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<h4 style="display:inline-block;float:right"><strong> रु{{product.price|floatformat:2}}</strong></h4>
+
+			</div>
+		</div>
+
+{% endblock content %}

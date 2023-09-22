@@ -1,0 +1,85 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Warning!</strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <h3 class="py-3">Electronics</h3>
+    	<div class="row">
+		{% for product in electronics %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<a class="btn btn-outline-success" href="http://127.0.0.1:8000/product_detail/{{ product.id }}">View</a>
+				<h4 style="display:inline-block;float:right"><strong> रु{{product.price|floatformat:2}}</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+        <h3 class="py-3">Clothes</h3>
+    	<div class="row">
+		{% for product in clothes %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<a class="btn btn-outline-success" href="http://127.0.0.1:8000/product_detail/{{ product.id }}">View</a>
+				<h4 style="display:inline-block;float:right"><strong> रु{{product.price|floatformat:2}}</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+    <h3 class = "py-3">Jerseys</h3>
+    	<div class="row">
+		{% for product in jerseys %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<a class="btn btn-outline-success" href="http://127.0.0.1:8000/product_detail/{{ product.id }}">View</a>
+				<h4 style="display:inline-block;float:right"><strong> रु{{product.price|floatformat:2}}</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+    <h3 class="py-3">Miscellaneous</h3>
+    	<div class="row">
+		{% for product in others %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<a class="btn btn-outline-success" href="http://127.0.0.1:8000/product_detail/{{ product.id }}">View</a>
+				<h4 style="display:inline-block;float:right"><strong> रु{{product.price|floatformat:2}}</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+    <br>
+    <br>
+    <br>
+{% endblock content %}
